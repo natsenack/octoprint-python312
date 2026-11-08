@@ -1,0 +1,16 @@
+services:
+  octoprint:
+    build: .
+    image: octoprint-python312:1.0.0
+    container_name: octoprint
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    volumes:
+      - octoprint_data:/data
+    # Pour une imprimante USB : décommenter et adapter le chemin.
+    # devices:
+    #   - /dev/serial/by-id/VOTRE_IMPRIMANTE:/dev/ttyUSB0
+
+volumes:
+  octoprint_data:
